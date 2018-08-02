@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>SOCIAL APP</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container"> 
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                    <h3>Sign Up</h3>
+                    <form id="form1" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <p class="bg-danger user-error">This Username is already taken</p>
+                            <label for="user">Username:</label>
+                            <input type="text" class="form-control" id="user" name="username">
+                        </div>
+                        <div class="form-group">
+                            <p class="bg-danger email-error">This email id has already been taken</p>
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" name="password">
+                        </div>
+                            
+                        <button type="submit" class="btn btn-primary disabled btn-block reg">Register</button>
+                    </form>
+                    
+                    
+                </div>
+                </div>
+        </div>
+        <style>
+            .user-error,.email-error{
+                display: none;
+            }
+        </style>
+        <script>
+            $('#user').keyup(function(){
+                if($('#user').val() && $('#email').val() && $('#pwd').val()){
+                    $('.reg').removeClass('disabled');
+                    $('.reg').addClass('active');
+                }
+                else{
+                    $('.reg').removeClass('active');
+                    $('.reg').addClass('disabled');
+                }
+            });
+            $('#email').keyup(function(){
+                if($('#user').val() && $('#email').val() && $('#pwd').val()){
+                    $('.reg').removeClass('disabled');
+                    $('.reg').addClass('active');
+                }
+                else{
+                    $('.reg').removeClass('active');
+                    $('.reg').addClass('disabled');
+                }
+            });
+            $('#pwd').keyup(function(){
+                if($('#user').val() && $('#email').val() && $('#pwd').val()){
+                    $('.reg').removeClass('disabled');
+                    $('.reg').addClass('active');
+                }
+                else{
+                    $('.reg').removeClass('active');
+                    $('.reg').addClass('disabled');
+                }
+            });
+
+            $('#form1').submit(function(e){
+                e.preventDefault();
+                var name=$('#user').val()
+                var mail=$('#email').val()
+                $.ajax({
+                    url:"{%url 'social_site:check'%}",
+                    data:{
+                        'name':name,
+                        'mail':mail,
+                    },
+                    dataType:'json',
+                    success:function(data){
+                        if(data.name_is_taken){
+                            $('.user-error').css('display','block');
+                        }
+                        if(data.mail_is_taken){
+                            $('.email-error').css('display','block');
+                        }
+                        if(!data.name_is_taken && !data.mail_is_taken){
+                            $('#form1').unbind("submit").submit();
+                            //window.location.href = "{%url 'social_site:home' %}";
+                        }
+                    }
+
+                });
+                
+            });
+        </script>
+
+    </body>
+</html>

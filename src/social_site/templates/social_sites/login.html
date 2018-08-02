@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>SOCIAL APP</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+           
+                
+               <div class="row">
+                <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                        <h3>Log In</h3>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email">Username:</label>
+                            <input type="text" class="form-control" id="user" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" name="password">
+                        </div>
+                            
+                        <button type="submit" class="btn btn-primary btn-block log">LOG IN</button>
+                    </form>
+                    <div class="new-user" style="text-align:center">New User | <a href="{%url 'social_site:register'%}">Sign Up</a></div>
+                    
+                </div>
+                </div>
+        </div>
+        <script>
+                $('.log').click(function(e){
+                    e.preventDefault();
+                    //console.log($('#USERNAME1').val());
+                    var name=$('#user').val()
+                    var pass=$('#pwd').val()
+                    
+                    $.ajax({
+                        url:'/login_check/',
+                        data:{
+                            'name':name,
+                            'pass':pass,
+                        },
+                        dataType:'json',
+                        success:function(data){
+                            if(data.is_valid){
+                                //$('.modal').modal('close');
+                                //alert('Logged In Successfully');
+                                
+                          
+                                window.location.href = "{%url 'social_site:home' %}";
+                                
+                                
+                            }
+                          /*else{
+                            console.log(data.is_valid);
+                            $('#PASSWORD1').val('');
+                            //console.log(b)
+                            //console.log($('#PASSWORD').val());
+                            $('.err').css("display","block");
+                            ;
+                          }*/ 
+                        }
+                    });
+                    return false;
+                });
+            </script>
+    </body>
+</html>

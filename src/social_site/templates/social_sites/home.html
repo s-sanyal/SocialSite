@@ -1,0 +1,255 @@
+<html>
+    <head>
+        <title>SOCIAL APP</title>
+        {%load static%}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/615aabc9f1.js"></script>
+        <link rel="stylesheet" href="{% static 'social_site/magnific-popup.css' %}">
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+            {% include 'social_sites/logout_modal.html' %}
+            <nav class="navbar navbar-default" style="margin:0">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                            </button>
+                        <a class="navbar-brand" href="#">MartianN</a>
+                      </div>
+                      <div class="collapse navbar-collapse" id="myNavbar">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                        <li><a href="#"> {{user}}</a></li>
+                        <li><a href="#"> <i class="fa fa-rocket" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+                        <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="#"data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a></li>
+                                  </ul>
+                          
+                        </li>
+                      </ul>
+                      
+                      </div>
+                    </div>
+                  </nav>
+
+
+            <div class="container-fluid start">
+                <div class="row off">
+                     <div class="col-sm-3 col-sm-offset-1 col-xs-4 col-xs-offset-1 pp" style="height:142px;width:142px;padding:0px;margin-right: 120px;">
+                        <img src="{%static 'social_site/1.jpeg'%}" class="img-responsive" width="142"
+                        height="200" style="height:160px">
+                    </div>  
+                    <div class="col-sm-5  col-xs-12" style="/* border:2px solid green; */margin-right:20px; border-bottom: 1px solid rgba(0,0,0,0.2);">
+                        <div class="row image">
+                            <img src="{%static 'social_site/1.jpeg'%}" class="img-rounded img-responsive" width="142px" height="142px">
+                        </div>
+                        <div class="row pname" >
+                            <p class="name" style="font-weight:bolder;font-size:25px">{{user}}</p>
+                            <a href="">Add profile Credentials</a>
+                        </div>
+                        <div class="row" style="/* border:2px solid violet; */line-height:2;">
+                            <h4>LATE TO BED AND LATE TO RISE 
+                            MAKES A CODER HEALTHY,WEALTHY AND WISE….</h4>
+                                                    <a href="">Edit</a>
+                                                </div>
+    
+                        <div class="row"><p style="color:gray;padding-top:10px">3 followers</p></div>
+                    </div>
+                    <div class="col-sm-2 col-xs-12 credentials">
+                        <div class="row">Photos</div>
+                        <div class=" row gallery-item" data-magnific="gallery-item">
+                            <li><a href="{%static 'social_site/1.jpeg'%}" 
+                                style="background-image:url({%static 'social_site/1.jpeg'%})"></a></li>
+                                <li><a href="{%static 'social_site/1.jpeg'%}" 
+                                    style="background-image:url({%static 'social_site/1.jpeg'%})"></a></li>
+                                    <li><a href="{%static 'social_site/1.jpeg'%}" 
+                                        style="background-image:url({%static 'social_site/1.jpeg'%})"></a></li>
+                                        <li><a href="{%static 'social_site/1.jpeg'%}" 
+                                            style="background-image:url({%static 'social_site/1.jpeg'%})"></a></li>
+                        </div>
+                        
+                    </div>
+    
+                </div>
+            </div>
+        <div class="row off">
+            <!-- <div class="col-sm-1 col-sm-offset-1 col-xs-12 feed">
+                <div class="row feeds" style="border-bottom: 1px solid rgba(0,0,0,0.2);padding-top: 10px;padding-bottom: 10px;">
+                    Feeds</div>
+                <div class="row feeds" >Answers 0</div>
+                <div class="row feeds" >Activity</div>
+                <div class="row feeds" >Shares 0</div>
+                <div class="row feeds" >Posts 0</div>
+                <div class="row feeds" >Blogs 0</div>
+                <div class="row feeds" >Followers 3</div>
+                <div class="row feeds" >Following 7</div>
+                <div class="row feeds" >Topics 13</div>
+                <div class="row feeds" >Edits 10</div>
+            </div> -->
+            <div class="col-sm-2 col-sm-offset-1 col-xs-12 cred">
+                    <div class="row" style="
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+">
+                        <div class="col-sm-10 col-xs-10" style="padding: 0;/*  */"><p>Credentials & Highlights</p></div>
+                        <div class="col-sm-2" style="padding: 0;/* border:2px solid aqua; */"><a href="">Edit</a></div>
+                    </div>
+                    <div class="row" style="
+    padding-top:  10px;
+"><a href=""><i class="fa fa-briefcase" aria-hidden="true"></i> Add employment</a></div>
+                    <div class="row" style="
+    padding-top:  10px;
+"><p><i class="fa fa-graduation-cap" aria-hidden="true"></i> B.tech in CSE from Government College of Engineering &amp; Ceramic Technology ,Kolkata
+                            Expected 2020</p></div>
+                    <div class="row" style="
+    padding-top:  10px;
+"><p><i class="fa fa-map-marker" aria-hidden="true"></i> Lived in Dum Dum</p></div>
+                    <div class="row" style="
+    padding-top: 10px;
+"><a href=""><i class="fa fa-globe" aria-hidden="true"></i> Add language credentials</a></div>
+                </div>
+        </div>
+        
+    <style>
+        body{
+
+            overflow-x: hidden;
+            
+        }
+        
+        .feeds{
+            padding-top: 10px;
+        }
+        .image{
+            float: left;
+            margin-right: 20px;
+            display: none;
+        }
+        .credentials{
+            top:30px;
+        }
+        .pp{
+            margin-top: 30px;
+            
+        }
+        .pname{
+            padding-top: 30px;
+        }
+        .gallery-item li a{
+            display: block;
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .gallery-item li{
+            float: left;
+            display: block;
+        }
+        
+      @media screen and (max-width: 768px){
+          html{
+            overflow-x: hidden;
+          }
+        body{
+            background-color: #e0e0e0 ;
+            overflow-x: hidden;
+        }
+        .row{
+            background-color: white;
+            padding-left: 15px;
+        }
+        .pp{
+            height: 50px;
+            width: 50px;
+            margin-right: 100px;
+        }
+        .pp img{
+            height: 50px;
+            width: 50px;
+        }
+        .feeds:nth-child(1){
+            display: none;
+        }
+        .feeds{
+            
+            padding: 27px;
+            display: inline-block;
+            padding-top: 10px;
+            background-color: #eeeeee ;
+            padding-bottom: 7px;
+        }
+        .feed{
+            overflow-x: auto;
+            white-space: nowrap;
+            top: 10px;
+            
+        }
+        .off{
+            background: transparent;
+            padding-left: 0px;
+        }
+        .pp{
+            display:none;
+        }
+        .image{
+            display: block;
+            float: left;
+            margin-right: 20px;
+            margin-top: 30px;
+        }
+        .name{
+            font-size:20px;
+        }
+        .image img{
+            width: 75px;
+            height: 75px;
+        }
+        .navi{
+            display: none;
+        }
+        .credentials{
+            top: 4px;
+            margin-top: 0px;
+        }
+        .cred{
+            background: transparent;
+            padding-left: 30px;
+            top: 10px;
+
+        }
+        h4{
+            font-size: 14px;
+        }
+      }
+     
+    </style>
+    <script src="{% static 'social_site/jquery.magnific-popup.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+        $('.gallery-item').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery:{
+              enabled:true
+            },
+            preloader: true,
+          });
+        });
+    </script>
+    </body>
+</html>
